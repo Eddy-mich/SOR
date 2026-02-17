@@ -39,5 +39,3 @@ CREATE TABLE vote (
     FOREIGN KEY (id_mail) REFERENCES utilisateur(id_mail),
     FOREIGN KEY (id_option) REFERENCES option_sondage(id_option)
 );
-
-

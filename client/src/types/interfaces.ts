@@ -4,12 +4,14 @@ export interface PollOption {
 }
 
 export interface Poll {
-    id_sondage: string;
-    titre: string;
-    text_description: string;
-    date_creation: string;
-    date_expiration: string;
-    statut: string;
-    id_mail: string | null;
-    options: PollOption[];
+  id: string;
+  title: string;
+  description: string;
+  createdAt: string;
+  expiresAt: string;
+  statut: string;
+  options: {
+    id: string;
+    text: string;
+  }[];
 }

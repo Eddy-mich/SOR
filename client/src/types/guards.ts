@@ -1,17 +1,20 @@
 import { Poll } from "./interfaces.ts";
 
-export function isPoll(obj: unknown): obj is Poll {
-  if (typeof obj !== "object" || obj === null) return false;
-
-  const p = obj as Record<string, unknown>;
-
+export function isPoll(obj: any): obj is Poll {
   return (
-    typeof p.id_sondage === "string" &&
-    typeof p.titre === "string" &&
-    typeof p.text_description === "string" &&
-    typeof p.date_creation === "string" &&
-    typeof p.date_expiration === "string" &&
-    (p.statut === "actif" || p.statut === "inactif") &&
-    (typeof p.id_mail === "string" || p.id_mail === null)
+    obj &&
+    typeof obj.id === "string" &&
+    typeof obj.title === "string" &&
+    typeof obj.description === "string" &&
+    typeof obj.createdAt === "string" &&
+    typeof obj.expiresAt === "string" &&
+    typeof obj.statut === "string" &&
+    Array.isArray(obj.options) &&
+    obj.options.every(
+      (opt: any) =>
+        typeof opt.id === "string" &&
+        typeof opt.text === "string"
+    )
   );
 }
+

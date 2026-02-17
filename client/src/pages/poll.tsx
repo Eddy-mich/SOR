@@ -70,8 +70,8 @@ export default function PollPage() {
 
   return (
     <main>
-      <h1>{poll.titre}</h1>
-      <p>{poll.text_description}</p>
+      <h1>{poll.title}</h1>
+      <p>{poll.description}</p>
 
       <h3>Options</h3>
       <ul>
